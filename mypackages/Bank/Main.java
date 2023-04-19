@@ -10,6 +10,19 @@ public class Main {
         Scanner input = new Scanner(System.in);
         int amount = input.nextInt();
 
+        try{
+            if(amount > balance){
+                throw new LowBalanceException("msg");
+            }
+            else{
+                System.out.println("u can take ur cash");
+                balance = balance - amount;
+                System.out.println("Now ur balance is : " + balance);
+            }
+        }
 
+        catch(LowBalanceException msg){
+            System.out.println("u cant withdrawal bcoz: " + msg);
+        }
     }
 }
